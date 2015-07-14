@@ -30,4 +30,18 @@ class Danger implements Strategy{
 	
 }
 
-class Context
+class Context{
+	public void checkState(Strategy strategy){
+		strategy.writeToLog();
+	}
+}
+
+class Test{
+	public static void main(String[] args){
+		Context context=new Context();
+		Strategy danger=new Danger();
+		Strategy warning=new Warning();
+		context.checkState(warning);
+		context.checkState(danger);
+	}
+}
